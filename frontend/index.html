@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080b12">
+    <title>Pixel Detective | AI Image Detector</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class='app'>
+        <header class='header'>
+            <div class='logo'>P<span>D</span></div>
+            <p class='eyebrow'>IMAGE INTELLIGENCE</p>
+            <h1>Pixel Detective</h1>
+            <p class='subtitle'>
+                Discover the difference between reality and artificial intelligence.
+            </p>
+        </header>
+
+        <section class='workspace'>
+            <div class='upload-area' id='uploadArea'>
+                <input
+                    type='file'
+                    id='imageInput'
+                    accept='image/jpeg,image/png,image/webp'
+                    hidden
+                >
+
+                <div class='upload-icon'>↑</div>
+                <h2>Drop an image to investigate</h2>
+                <p>Choose a JPG, PNG or WebP image</p>
+
+                <button type='button' class='secondary-btn' id='chooseBtn'>
+                    Browse files
+                </button>
+
+                <p class='file-note'>Maximum file size: 10 MB</p>
+            </div>
+
+            <div class='preview-area' id='previewArea' hidden>
+                <img id='imagePreview' alt='Selected image preview'>
+
+                <div class='file-details'>
+                    <span id='fileName'></span>
+                    <button type='button' id='removeBtn' class='text-btn'>
+                        Remove
+                    </button>
+                </div>
+
+                <button type='button' id='analyzeBtn' class='primary-btn' disabled>
+                    Analyze image <span>→</span>
+                </button>
+            </div>
+
+            <p id='status' class='status' role='status' aria-live='polite'></p>
+
+            <section id='result' class='result-card' hidden>
+                <div class='result-divider'></div>
+                <p class='eyebrow'>ANALYSIS COMPLETE</p>
+                <h2 id='prediction'></h2>
+
+                <div class='confidence-row'>
+                    <span>Model confidence</span>
+                    <strong id='confidence'></strong>
+                </div>
+
+                <div class='confidence-track'>
+                    <div id='confidenceBar' class='confidence-bar'></div>
+                </div>
+
+                <p class='disclaimer'>
+                    This is a model prediction, not proof of an image's origin.
+                    Results may be less reliable for images unlike the training data.
+                </p>
+
+                <button type='button' id='newImageBtn' class='secondary-btn'>
+                    Analyze another image
+                </button>
+            </section>
+        </section>
+
+        <footer>
+            <span class='status-dot'></span>
+            Local model · No account required
+            <p>Your images are processed by the local backend and are not intentionally saved to disk.</p>
+        </footer>
+    </main>
+
+    <script src='/script.js'></script>
+</body>
+</html>
